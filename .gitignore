@@ -1,0 +1,3 @@
+node_modules/
+test/state-sample.json
+__pycache__/
