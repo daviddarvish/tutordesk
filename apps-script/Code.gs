@@ -6,6 +6,9 @@
  * - מעביר נתונים מהלשונית הקיימת "ניהול תלמידים" בלי לשנות אותה
  * - חושף API מאובטח במפתח לאפליקציה (מק + אייפון)
  * - שולח התראות ל-ntfy: סיכום בוקר, בדיקת ערב, סיכום שבועי
+ *
+ * הרשאות מינימליות: הסקריפט ניגש רק לגיליון שהוא מחובר אליו.
+ * @OnlyCurrentDoc
  */
 
 const VERSION = '1.0.0';
@@ -869,10 +872,6 @@ function uiAlert_(title, msg) {
 }
 
 function ss_() {
-  const id = props_().getProperty('SS_ID');
-  if (id) {
-    try { return SpreadsheetApp.openById(id); } catch (e) {}
-  }
   return SpreadsheetApp.getActiveSpreadsheet();
 }
 
